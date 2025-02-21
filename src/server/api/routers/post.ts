@@ -39,6 +39,7 @@ export const postRouter = createTRPCRouter({
       id: photo.id,
       title: photo.title,
       url: `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`,
+      flickrUrl: `https://www.flickr.com/photos/${photo.owner}/${photo.id}`,
       owner: photo.owner,
     }));
   }),
