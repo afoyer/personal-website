@@ -15,6 +15,7 @@ export const env = createEnv({
     AUTH_SPOTIFY_SECRET: z.string(),
     FLICKR_API_KEY: z.string(),
     FLICKR_API_SECRET: z.string(),
+    FLICKR_USER_ID: z.string(),
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
@@ -39,6 +40,7 @@ export const env = createEnv({
     AUTH_SPOTIFY_SECRET: process.env.AUTH_SPOTIFY_SECRET,
     FLICKR_API_KEY: process.env.FLICKR_API_KEY,
     FLICKR_API_SECRET: process.env.FLICKR_API_SECRET,
+    FLICKR_USER_ID: process.env.FLICKR_USER_ID,
     NODE_ENV: process.env.NODE_ENV,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
