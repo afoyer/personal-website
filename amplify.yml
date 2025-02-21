@@ -10,7 +10,7 @@ frontend:
     build:
       commands:
         - "[ -e .env.production ] && rm .env.production || true"
-        - "printenv | grep -E '^AUTH_|^DATABASE_URL' >> .env.production"
+        - "printenv | grep -E '^AUTH_|^NEXTAUTH_' >> .env.production"
         - bun run build
   artifacts:
     baseDirectory: .next
