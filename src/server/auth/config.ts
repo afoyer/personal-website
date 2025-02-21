@@ -1,5 +1,5 @@
 import { type DefaultSession, type NextAuthConfig } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
+import Spotify from "next-auth/providers/spotify";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -29,7 +29,11 @@ declare module "next-auth" {
  */
 export const authConfig = {
   providers: [
-    DiscordProvider,
+    Spotify({
+      clientId: process.env.AUTH_SPOTIFY_ID,
+      clientSecret: process.env.AUTH_SPOTIFY_SECRET,
+    }),
+    // DiscordProvider,
     /**
      * ...add more providers here.
      *
