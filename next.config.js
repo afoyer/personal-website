@@ -16,6 +16,9 @@ const config = {
       },
     ],
   },
+  auth: {
+    trustHost: true,
+  },
 };
 
 export default config;
