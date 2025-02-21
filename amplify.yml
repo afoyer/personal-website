@@ -9,7 +9,8 @@ frontend:
         - bun install
     build:
       commands:
-        - env | grep -e AUTH_ -e DATABASE_URL || true
+        - "[ -e .env.production ] && rm .env.production || true"
+        - "printenv | grep -E '^AUTH_|^DATABASE_URL' >> .env.production"
         - bun run build
   artifacts:
     baseDirectory: .next
