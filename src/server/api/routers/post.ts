@@ -6,10 +6,6 @@ import {
   publicProcedure,
 } from "~/server/api/trpc";
 
-let post = {
-  id: 1,
-  name: "Hello World",
-};
 const flickrResponseSchema = z.object({
   photos: z.object({
     photo: z.array(z.object({
@@ -34,7 +30,7 @@ export const postRouter = createTRPCRouter({
   getPics: publicProcedure.query(async () => {
     //TODO Add pagination
     const pics = await fetch(`https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=${process.env.FLICKR_API_KEY}&user_id=${process.env.FLICKR_USER_ID}&tags=cat&per_page=10&format=json&nojsoncallback=1`)
-    const rawData = await pics.json()
+    const rawData: unknown = await pics.json()
     // Validate the API response
     const validatedData = flickrResponseSchema.parse(rawData);
     
@@ -46,7 +42,6 @@ export const postRouter = createTRPCRouter({
       owner: photo.owner,
     }));
   }),
-
   getSecretMessage: protectedProcedure.query(() => {
     return "you can now see this secret message!";
   }),

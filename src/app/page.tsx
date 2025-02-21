@@ -1,10 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
+//ignore @next/next/no-img-element
 
 import { auth } from "~/server/auth";
 import { api, HydrateClient } from "~/trpc/server";
 import * as motion from "motion/react-client"
-import React from "react";
 export default async function Home() {
   const pictures = await api.post.getPics()
   const session = await auth();
