@@ -1,11 +1,28 @@
 {
-    "typescript.tsdk": "node_modules/typescript/lib",
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "vscode.typescript-language-features",
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.enableVisualBell": true,
+    "dart.flutterCreateIOSLanguage": "swift",
+    "dart.flutterCreateAndroidLanguage": "kotlin",
+    "eslint.autoFixOnSave": true,
+    "editor.suggestSelection": "first",
+    "window.zoomLevel": 1,
+    "editor.formatOnSaveMode": "file",
+    "prettier.eslintIntegration": true,
+    "eslint.alwaysShowStatus": true,
+    "files.exclude": {
+      "**/.classpath": true,
+      "**/.project": true,
+      "**/.settings": true,
+      "**/.factorypath": true
     },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-}
+    "files.autoSave": "off",
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "prettier.bracketSameLine": true,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+    "prettier.jsxSingleQuote": true,
+  }

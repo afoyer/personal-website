@@ -16,14 +16,11 @@ const config = {
       },
     ],
   },
-  auth: {
-    trustHost: true,
-  },
 };
 
 // Add this logging during build
 console.log('Build-time environment check:', {
-  hasFlickrKey: !!process.env.AUTH_FLICKR_KEY,
+  hasFlickrKey: !!process.env.AUTH_FLICKR_API_KEY,
   hasFlickrUserId: !!process.env.AUTH_FLICKR_USER_ID,
   hasAuthUrl: !!process.env.AUTH_URL,
 });
