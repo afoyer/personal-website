@@ -9,7 +9,7 @@ frontend:
         - bun install
     build:
       commands:
-        - "[ -e .env.production ] && rm .env.production || true"
+        - '[ -e .env.production ] && rm .env.production || true'
         - "printenv | grep -E '^AUTH_|^NEXTAUTH_' >> .env.production"
         - bun run build
   artifacts:
@@ -18,4 +18,19 @@ frontend:
       - '**/*'
   cache:
     paths:
-      - node_modules/**/* 
+      - node_modules/**/*
+
+backend:
+  phases:
+    build:
+      commands:
+        - cd amplify
+        - bun install
+        - bun run build
+  artifacts:
+    baseDirectory: amplify
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - amplify/node_modules/**/*
