@@ -1,17 +1,27 @@
 //ignore @next/next/no-img-element
-import { auth } from '~/server/auth'
+import { getCurrentUser } from 'aws-amplify/auth'
 import { HydrateClient } from '~/trpc/server'
+import { AuthButtons } from '~/components/auth/auth-buttons'
 
 import AnimatedSection from '../components/layout/animated-section'
 
 export default async function Home() {
-  const session = await auth()
+  let user = null
+  try {
+    user = await getCurrentUser()
+    console.log('Amplify user:', user)
+  } catch (error) {
+    // This is expected when no user is signed in
+    console.log('No authenticated user - this is normal on first load')
+  }
+
   return (
     <div className="flex flex-col items-center justify-center py-16">
       <AnimatedSection>
         <HydrateClient>
-          <div>
-            <h1>Hello</h1>
+          <div className="flex flex-col items-center gap-8">
+            <h1 className="text-4xl font-bold">Welcome</h1>
+            <AuthButtons />
           </div>
         </HydrateClient>
       </AnimatedSection>

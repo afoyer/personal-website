@@ -7,18 +7,25 @@ import { defineAuth, secret } from '@aws-amplify/backend';
 export const auth = defineAuth({
   loginWith: {
     email: true,
-    'externalProviders':{
-      'google':{
+    externalProviders: {
+      callbackUrls: [
+        'http://localhost:3000',
+        'https://mywebsite.com'
+      ],
+      logoutUrls: [
+        'http://localhost:3000',
+        'https://mywebsite.com'
+      ],
+      google: {
         clientId: secret('AUTH_GOOGLE_ID'),
         clientSecret: secret('AUTH_GOOGLE_SECRET'),
-      },
-      scopes: ['PROFILE'],
-    callbackUrls: [
-      'http://localhost:3000/profile',
-      'https://mywebsite.com/profile'
-    ],
-    logoutUrls: ['http://localhost:3000/', 'https://mywebsite.com'],
-    },
-    
+        scopes: ['email', 'profile', 'openid']
+      }
+    }
   },
+  userAttributes: {
+    email: {
+      required: true
+    }
+  }
 });

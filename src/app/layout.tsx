@@ -1,10 +1,10 @@
 import '~/styles/globals.css'
-
 import { GeistSans } from 'geist/font/sans'
 import { Metadata } from 'next'
 import { ThemeScript } from '~/components/layout/ThemeScript'
 import { Navbar } from '~/components/navbar'
 import { TRPCReactProvider } from '~/trpc/react'
+import { AmplifyProvider } from '~/components/auth/amplify-provider'
 
 export const metadata: Metadata = {
   title: 'Aymeric F',
@@ -17,18 +17,20 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <TRPCReactProvider>
-      <html lang="en" className={GeistSans.variable} suppressHydrationWarning>
-        <head>
-          <ThemeScript />
-        </head>
+      <AmplifyProvider>
+        <html lang="en" className={GeistSans.variable} suppressHydrationWarning>
+          <head>
+            <ThemeScript />
+          </head>
 
-        <body className="flex min-h-screen flex-col bg-gray-50 transition-colors dark:bg-gray-900">
-          <main>
-            <Navbar />
-            {children}
-          </main>
-        </body>
-      </html>
+          <body className="flex min-h-screen flex-col bg-gray-50 transition-colors dark:bg-gray-900">
+            <main className="flex-1">
+              <Navbar />
+              <div className="pt-16">{children}</div>
+            </main>
+          </body>
+        </html>
+      </AmplifyProvider>
     </TRPCReactProvider>
   )
 }

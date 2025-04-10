@@ -14,6 +14,18 @@ const schema = a.schema({
       tags: a.string().array(),
       aiAnalysis: a.string(),
       mood: a.string().required(), // Hex color code
+      date: a.datetime().required(),
+    })
+    .authorization((allow) => [
+      allow.owner(),
+    ]),
+    
+  UserCredentials: a
+    .model({
+      userId: a.string().required(),
+      serviceName: a.string().required(),
+      credentials: a.json().required(),
+      lastUpdated: a.datetime().required(),
     })
     .authorization((allow) => [
       allow.owner(),
