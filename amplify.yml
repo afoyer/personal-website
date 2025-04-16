@@ -13,9 +13,13 @@ frontend:
         - "printenv | grep -E '^AUTH_|^NEXTAUTH_' >> .env.production"
         - bun run build
   artifacts:
-    baseDirectory: .next
+    baseDirectory: .
     files:
-      - '**/*'
+      - '.next/**/*'
+      - 'public/**/*'
+      - 'package.json'
+      - 'next.config.js'
+      - 'node_modules/**/*'
     discard-paths: no
   cache:
     paths:
