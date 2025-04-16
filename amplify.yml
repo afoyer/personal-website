@@ -16,7 +16,6 @@ frontend:
     baseDirectory: .next
     files:
       - '**/*'
-      - '!.next/cache/**/*'
     discard-paths: no
   cache:
     paths:
