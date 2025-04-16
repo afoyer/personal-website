@@ -1,6 +1,6 @@
 import { Amplify } from 'aws-amplify'
 import { NextServer } from '@aws-amplify/adapter-nextjs'
-import outputs from '../../amplify_outputs.json'
+import outputs from '../../../amplify_outputs.json'
 
 const config = {
   Auth: {
