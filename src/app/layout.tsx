@@ -4,8 +4,8 @@ import { Metadata } from 'next'
 import { ThemeScript } from '~/components/layout/ThemeScript'
 import { Navbar } from '~/components/navbar'
 import { TRPCReactProvider } from '~/trpc/react'
-import { AmplifyProvider } from '~/components/auth/amplify-provider'
-import { UserSetup } from '~/components/auth/user-setup'
+// import { AmplifyProvider } from '~/components/auth/amplify-provider'
+// import { UserSetup } from '~/components/auth/user-setup'
 
 export const metadata: Metadata = {
   title: 'Aymeric F',
@@ -18,7 +18,6 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <TRPCReactProvider>
-      <AmplifyProvider>
         <html lang="en" className={GeistSans.variable} suppressHydrationWarning>
           <head>
             <ThemeScript />
@@ -29,10 +28,8 @@ export default function RootLayout({
               <Navbar />
               <div className="pt-4">{children}</div>
             </main>
-            <UserSetup />
           </body>
         </html>
-      </AmplifyProvider>
     </TRPCReactProvider>
   )
 }
