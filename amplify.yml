@@ -27,7 +27,7 @@ backend:
         - npm install
         - npm run build
   artifacts:
-    baseDirectory: .amplify
+    baseDirectory: amplify
     files:
       - '**/*'
     discard-paths: no
