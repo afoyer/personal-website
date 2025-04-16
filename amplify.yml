@@ -7,13 +7,18 @@ frontend:
     build:
       commands:
         - npm run build
+        - echo "Verifying build output..."
+        - ls -la
+        - ls -la .next
   artifacts:
     baseDirectory: .next
     files:
       - '**/*'
+    discard-paths: no
   cache:
     paths:
       - node_modules/**/*
+
 backend:
   phases:
     build:
@@ -25,6 +30,7 @@ backend:
     baseDirectory: .amplify
     files:
       - '**/*'
+    discard-paths: no
   cache:
     paths:
       - amplify/node_modules/**/*
