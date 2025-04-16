@@ -21,6 +21,13 @@ const config = {
         }
       }
     }
+  },
+  API: {
+    GraphQL: {
+      endpoint: outputs.data.url,
+      region: outputs.data.aws_region,
+      defaultAuthMode: 'userPool' as const
+    }
   }
 }
 
