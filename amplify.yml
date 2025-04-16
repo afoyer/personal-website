@@ -6,10 +6,12 @@ frontend:
         - npm ci
     build:
       commands:
+        - echo "Starting Next.js build..."
         - npm run build
-        - echo "Verifying build output..."
+        - echo "Build completed, checking .next directory..."
         - ls -la
-        - ls -la .next
+        - if [ -d ".next" ]; then echo ".next directory exists"; else echo
+          ".next directory does not exist"; fi
   artifacts:
     baseDirectory: .next
     files:
