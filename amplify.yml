@@ -16,6 +16,8 @@ frontend:
     baseDirectory: .next
     files:
       - '**/*'
+      - '!.next/cache/**/*'
+    discard-paths: no
   cache:
     paths:
       - node_modules/**/*
@@ -31,6 +33,7 @@ backend:
     baseDirectory: amplify
     files:
       - '**/*'
+    discard-paths: no
   cache:
     paths:
       - amplify/node_modules/**/*
