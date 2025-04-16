@@ -1,6 +1,4 @@
-import Link from 'next/link'
 import { FlickrGrid } from '~/components/flickr-grid'
-import SpotifySignIn from '~/components/spotify-sign-in'
 //ignore @next/next/no-img-element
 import { auth } from '~/server/auth'
 import { api, HydrateClient } from '~/trpc/server'
