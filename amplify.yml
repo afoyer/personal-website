@@ -3,23 +3,23 @@ frontend:
   phases:
     preBuild:
       commands:
-        - curl -fsSL https://bun.sh/install | bash
-        - export BUN_INSTALL="$HOME/.bun"
-        - export PATH="$BUN_INSTALL/bin:$PATH"
-        - bun install
+        - npm ci
     build:
       commands:
         - '[ -e .env.production ] && rm .env.production || true'
-        - "printenv | grep -E '^AUTH_|^NEXTAUTH_' >> .env.production"
-        - bun run build
+        - "printenv | grep -E '^AUTH_|^NEXTAUTH_|^NODE_ENV' >> .env.production"
+        - echo "NODE_ENV=production" >> .env.production
+        - npm run build
   artifacts:
     baseDirectory: .next
     files:
       - '**/*'
+      - '!.next/cache/**'
     discard-paths: no
   cache:
     paths:
       - node_modules/**/*
+      - .next/cache/**/*
 
 backend:
   phases:
